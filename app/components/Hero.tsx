@@ -26,6 +26,8 @@ const avatars = [
   "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=100&h=100&q=80",
 ];
 
+const calendlyUrl = "https://calendly.com/kytolabs/30min";
+
 export default function Hero() {
   const vantaRef = useRef<HTMLDivElement>(null);
   const vantaEffect = useRef<{ destroy: () => void } | null>(null);
@@ -122,7 +124,7 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-3 mt-1"
         >
           <a
-            href="#book"
+            href={calendlyUrl}
             className="group flex items-center gap-2 rounded-xl border border-purple-400/70 bg-linear-to-r from-[#5a0aa8] via-[#6810ba] to-[#5d0aaa] py-3.5 px-7 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,.14),0_8px_26px_rgba(126,34,206,.25)] transition-all duration-300 hover:border-purple-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-[1.02]"
           >
             Book a Free Call

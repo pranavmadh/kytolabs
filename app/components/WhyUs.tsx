@@ -22,6 +22,8 @@ const tasks = [
   ["Testing & Optimization", "Pending", "bg-orange-400"],
 ];
 
+const calendlyUrl = "https://calendly.com/kytolabs/30min";
+
 function FeatureIcon({ kind }: { kind: "team" | "eye" }) {
   return (
     <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-purple-500/30 bg-purple-500/[0.08] text-purple-400 shadow-[inset_0_0_25px_rgba(126,34,206,.08)]">
@@ -193,7 +195,7 @@ export default function WhyUs() {
         </div>
 
         <motion.a
-          href="#contact"
+          href={calendlyUrl}
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

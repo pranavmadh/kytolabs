@@ -13,6 +13,9 @@ const navItems = [
   { name: "Contact", href: "#contact", sectionId: "book" },
 ];
 
+const calendlyUrl = "https://calendly.com/kytolabs/30min";
+const phoneUrl = "tel:+971547383114";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -109,9 +112,9 @@ export default function Navbar() {
           </div>
 
           {/* Action Button (Desktop) */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
             <a
-              href="#book"
+              href={calendlyUrl}
               className="group flex items-center gap-2.5 rounded-xl border border-purple-400/60 bg-purple-500/[0.08] py-3 px-6 text-sm font-medium text-purple-100 shadow-[inset_0_0_18px_rgba(126,34,206,.08)] transition-all duration-300 hover:border-purple-300 hover:bg-purple-500/15 hover:shadow-[0_0_24px_rgba(168,85,247,.22)]"
             >
               Book a Free Call
@@ -129,6 +132,27 @@ export default function Navbar() {
               >
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a
+              href={phoneUrl}
+              className="group flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.04] py-3 px-5 text-sm font-medium text-zinc-100 transition-all duration-300 hover:border-purple-400/40 hover:bg-purple-500/10"
+            >
+              Call Now
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              >
+                <path d="M6.6 3.8 9 3l2 5-2.2 1.4a15 15 0 0 0 5.8 5.8L16 13l5 2-1 2.4a3 3 0 0 1-3.2 1.8C10.5 18.1 5.9 13.5 4.8 7.2A3 3 0 0 1 6.6 3.8Z" />
               </svg>
             </a>
           </div>
@@ -198,9 +222,9 @@ export default function Navbar() {
               );
             })()
           ))}
-          <div className="pt-4">
+          <div className="grid grid-cols-1 gap-3 pt-4 min-[420px]:grid-cols-2">
             <a
-              href="#book"
+              href={calendlyUrl}
               onClick={() => setIsOpen(false)}
               className="flex w-full items-center justify-center gap-2 rounded-xl border border-purple-400/70 bg-linear-to-r from-[#5a0aa8] via-[#6810ba] to-[#5d0aaa] py-3 px-4 text-center text-sm font-semibold text-white shadow-[0_8px_24px_rgba(126,34,206,.25)] transition-all hover:border-purple-300 hover:brightness-110"
             >
@@ -217,6 +241,28 @@ export default function Navbar() {
               >
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a
+              href={phoneUrl}
+              onClick={() => setIsOpen(false)}
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] py-3 px-4 text-center text-sm font-semibold text-white transition-all hover:border-purple-400/40 hover:bg-purple-500/10"
+            >
+              Call Now
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="inline-block"
+                aria-hidden="true"
+              >
+                <path d="M6.6 3.8 9 3l2 5-2.2 1.4a15 15 0 0 0 5.8 5.8L16 13l5 2-1 2.4a3 3 0 0 1-3.2 1.8C10.5 18.1 5.9 13.5 4.8 7.2A3 3 0 0 1 6.6 3.8Z" />
               </svg>
             </a>
           </div>

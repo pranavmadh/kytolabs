@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 
+const calendlyUrl = "https://calendly.com/kytolabs/30min";
+const phoneUrl = "tel:+971547383114";
+
 export default function CTA() {
   return (
     <section id="book" className="relative scroll-mt-24 px-4 pb-4 pt-10 sm:px-6 sm:pb-5 lg:px-8">
@@ -27,23 +30,40 @@ export default function CTA() {
           <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.23 }} className="mt-2 text-sm text-zinc-400 sm:text-base">
             Let&apos;s create a powerful digital experience for your business.
           </motion.p>
-          <motion.a
-            href="mailto:contact.pranovm@gmail.com?subject=Free%20Discovery%20Call"
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -3, scale: 1.015 }}
-            whileTap={{ scale: 0.97 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.3 }}
-            className="group mt-5 inline-flex min-h-14 items-center gap-4 rounded-full border border-purple-400/70 bg-linear-to-r from-[#5a0aa8] via-[#6810ba] to-[#5d0aaa] py-1.5 pl-6 pr-2 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,.15),0_10px_30px_rgba(126,34,206,.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-[inset_0_1px_0_rgba(255,255,255,.2),0_14px_38px_rgba(126,34,206,.45)]"
+            className="mt-5 flex flex-wrap items-center justify-center gap-3"
           >
-            Book a Free Call
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-purple-700 shadow-[0_3px_12px_rgba(0,0,0,.2)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M7 17 17 7M8 7h9v9" />
-              </svg>
-            </span>
-          </motion.a>
+            <motion.a
+              href={calendlyUrl}
+              whileHover={{ y: -3, scale: 1.015 }}
+              whileTap={{ scale: 0.97 }}
+              className="group inline-flex min-h-14 items-center gap-4 rounded-full border border-purple-400/70 bg-linear-to-r from-[#5a0aa8] via-[#6810ba] to-[#5d0aaa] py-1.5 pl-6 pr-2 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,.15),0_10px_30px_rgba(126,34,206,.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-[inset_0_1px_0_rgba(255,255,255,.2),0_14px_38px_rgba(126,34,206,.45)]"
+            >
+              Book a Free Call
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-purple-700 shadow-[0_3px_12px_rgba(0,0,0,.2)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
+              </span>
+            </motion.a>
+            <motion.a
+              href={phoneUrl}
+              whileHover={{ y: -3, scale: 1.015 }}
+              whileTap={{ scale: 0.97 }}
+              className="group inline-flex min-h-14 items-center gap-4 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pl-6 pr-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-purple-400/40 hover:bg-purple-500/10"
+            >
+              Call Now
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-purple-700 shadow-[0_3px_12px_rgba(0,0,0,.2)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M6.6 3.8 9 3l2 5-2.2 1.4a15 15 0 0 0 5.8 5.8L16 13l5 2-1 2.4a3 3 0 0 1-3.2 1.8C10.5 18.1 5.9 13.5 4.8 7.2A3 3 0 0 1 6.6 3.8Z" />
+                </svg>
+              </span>
+            </motion.a>
+          </motion.div>
         </div>
       </motion.div>
     </section>
