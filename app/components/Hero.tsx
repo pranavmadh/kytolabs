@@ -64,7 +64,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full pt-36 pb-12 flex flex-col items-center justify-center text-center overflow-hidden">
+    <section id="home" className="relative w-full scroll-mt-24 pt-48 pb-12 flex flex-col items-center justify-center text-center overflow-hidden">
 
       {/* Vanta DOTS canvas */}
       <div ref={vantaRef} className="absolute inset-0 z-0" />
@@ -78,7 +78,7 @@ export default function Hero() {
         {/* Pill badge */}
         <motion.div
           {...fadeUp(0.1)}
-          className="inline-flex md:hidden items-center gap-2 rounded-full border border-white/10 bg-[#0d0b1a]/70 py-2 px-5 backdrop-blur-sm"
+          className="inline-flex md:hidden items-center gap-2 rounded-full border border-purple-500/35 bg-purple-500/[0.07] py-2 px-5 text-purple-300 backdrop-blur-sm"
         >
           <span className="text-purple-400 text-sm leading-none">✦</span>
           <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-300">
@@ -97,7 +97,7 @@ export default function Hero() {
               transition={{ duration: 0.7, ease, delay: 0.22 + i * 0.13 }}
             >
               {line.gradient ? (
-                <span className="bg-linear-to-r from-purple-400 via-violet-400 to-purple-300 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-purple-400 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
                   {line.text}
                 </span>
               ) : (
@@ -112,8 +112,8 @@ export default function Hero() {
           {...fadeUp(0.55)}
           className="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-[500px]"
         >
-          From high-converting websites and stunning designs to social media
-          growth and AI-powered video ads, we help ambitious brands scale.
+          KytoLabs provides global website development, web design, and SEO to
+          create fast, conversion-focused experiences for ambitious brands.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -123,7 +123,7 @@ export default function Hero() {
         >
           <a
             href="#book"
-            className="group flex items-center gap-2 rounded-xl bg-purple-600 py-3.5 px-7 text-sm font-semibold text-white transition-all duration-300 hover:bg-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.45)] hover:scale-[1.02]"
+            className="group flex items-center gap-2 rounded-xl border border-purple-400/70 bg-linear-to-r from-[#5a0aa8] via-[#6810ba] to-[#5d0aaa] py-3.5 px-7 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,.14),0_8px_26px_rgba(126,34,206,.25)] transition-all duration-300 hover:border-purple-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-[1.02]"
           >
             Book a Free Call
             <svg
@@ -138,7 +138,7 @@ export default function Hero() {
           </a>
           <a
             href="#work"
-            className="group flex items-center gap-2 rounded-xl border border-white/15 bg-white/4 py-3.5 px-7 text-sm font-semibold text-white transition-all duration-300 hover:border-white/30 hover:bg-white/7 hover:scale-[1.02]"
+            className="group flex items-center gap-2 rounded-xl border border-white/10 bg-[#0a0814]/85 py-3.5 px-7 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/35 hover:bg-purple-500/[0.08] hover:scale-[1.02]"
           >
             View Our Work
             <svg
@@ -164,7 +164,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.7 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, ease, delay: 0.78 + i * 0.06 }}
-                className="h-9 w-9 rounded-full border-2 border-[#030208] object-cover bg-zinc-800"
+                className="h-9 w-9 rounded-full border-2 border-[#0a0814] object-cover bg-zinc-800"
               />
             ))}
           </div>

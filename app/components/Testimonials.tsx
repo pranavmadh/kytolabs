@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+
+import { motion } from "framer-motion";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -24,7 +24,7 @@ const testimonials = [
     name: "Sarah Mitchell",
     role: "Marketing Head, GlowSkin",
     initials: "SM",
-    gradient: "from-pink-600 to-rose-700",
+    gradient: "from-fuchsia-600 to-purple-700",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const testimonials = [
     name: "Daniel Roberts",
     role: "CEO, FitZone",
     initials: "DR",
-    gradient: "from-blue-600 to-cyan-700",
+    gradient: "from-violet-500 to-purple-800",
   },
   {
     id: 3,
@@ -42,58 +42,7 @@ const testimonials = [
     name: "Priya Sharma",
     role: "Director, Nexora AI",
     initials: "PS",
-    gradient: "from-emerald-600 to-teal-700",
-  },
-];
-
-const brands = [
-  {
-    name: "UrbanNest",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    ),
-  },
-  {
-    name: "GlowSkin",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-      </svg>
-    ),
-  },
-  {
-    name: "FitZone",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-      </svg>
-    ),
-  },
-  {
-    name: "Nexora AI",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
-      </svg>
-    ),
-  },
-  {
-    name: "Vogue Avenue",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
-      </svg>
-    ),
-  },
-  {
-    name: "BuildCo",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
-      </svg>
-    ),
+    gradient: "from-purple-500 to-fuchsia-800",
   },
 ];
 
@@ -125,163 +74,109 @@ function QuoteIcon() {
 
 function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   return (
-    <div className="flex flex-col gap-5 rounded-2xl border border-white/[0.07] bg-[#0d0b1a] p-7 h-full">
-      <QuoteIcon />
-      <p className="text-[15px] text-zinc-300 leading-relaxed flex-1">
-        {testimonial.quote}
-      </p>
-      <div className="border-t border-white/[0.07] pt-5 flex items-center gap-4">
-        {/* Avatar */}
-        <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${testimonial.gradient} ring-2 ring-purple-500/30 text-white font-bold text-lg select-none`}>
+    <article className="relative flex h-[190px] w-[320px] shrink-0 flex-col overflow-hidden rounded-2xl border border-white/[0.1] bg-[#0a0814]/95 p-5 shadow-[inset_0_0_28px_rgba(76,29,149,.08)] transition-colors hover:border-purple-500/35 sm:w-[420px]">
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div>
+          <h3 className="font-bold leading-tight text-white">{testimonial.name}</h3>
+          <p className="mt-1 text-xs text-zinc-500">{testimonial.role}</p>
+          <div className="[&_svg]:h-3 [&_svg]:w-3"><Stars /></div>
+        </div>
+        <div className={`flex h-11 w-11 shrink-0 select-none items-center justify-center rounded-full bg-linear-to-br ${testimonial.gradient} text-sm font-bold text-white ring-2 ring-white/70 shadow-[0_0_18px_rgba(168,85,247,.25)]`}>
           {testimonial.initials}
         </div>
-        {/* Info */}
-        <div>
-          <p className="font-bold text-white leading-tight">{testimonial.name}</p>
-          <p className="text-sm text-zinc-500">{testimonial.role}</p>
-          <Stars />
-        </div>
       </div>
+      <p className="relative z-10 text-sm leading-6 text-zinc-300">
+        &ldquo;{testimonial.quote}&rdquo;
+      </p>
+      <div className="pointer-events-none absolute -bottom-2 right-2 opacity-[0.04]"><QuoteIcon /></div>
+    </article>
+  );
+}
+
+function TestimonialRow({
+  items,
+  reverse = false,
+}: {
+  items: typeof testimonials;
+  reverse?: boolean;
+}) {
+  const repeated = [...items, ...items];
+
+  return (
+    <div className="[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <motion.div
+        className="flex w-max gap-5"
+        initial={{ x: reverse ? "-50%" : "0%" }}
+        animate={{ x: reverse ? "0%" : "-50%" }}
+        transition={{ duration: reverse ? 34 : 30, repeat: Infinity, ease: "linear" }}
+      >
+        {repeated.map((testimonial, index) => (
+          <TestimonialCard
+            key={`${testimonial.id}-${index}`}
+            testimonial={testimonial}
+          />
+        ))}
+      </motion.div>
     </div>
   );
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
-
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const n = testimonials.length;
-
-  const prev = () => setActiveIndex((i) => (i - 1 + n) % n);
-  const next = () => setActiveIndex((i) => (i + 1) % n);
-
-  // 3 visible cards on desktop
-  const visibleIndices = [activeIndex, (activeIndex + 1) % n, (activeIndex + 2) % n];
+  const secondRow = [
+    ...testimonials.slice(2),
+    ...testimonials.slice(0, 2),
+  ];
 
   return (
-    <section className="w-full py-20 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section
+      id="testimonials"
+      className="relative w-full scroll-mt-24 overflow-hidden py-20 lg:py-24"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(124,58,237,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,.07) 1px,transparent 1px)",
+        backgroundSize: "52px 52px",
+      }}
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(76,29,149,.08),#030208_72%)]" />
+      <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-purple-700/15 blur-[110px]" />
+      <div className="pointer-events-none absolute left-0 top-0 grid grid-cols-4 gap-0 opacity-20">
+        {Array.from({ length: 12 }).map((_, index) => (
+          <i key={index} className="h-14 w-14 border border-purple-500/10 bg-purple-500/[0.05]" />
+        ))}
+      </div>
 
-        {/* Header */}
-        <motion.div
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.header
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease }}
-          className="flex flex-col items-center gap-4 text-center mb-14"
+          className="mb-14 flex flex-col items-center gap-5 text-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/40 bg-purple-500/10 py-2 px-5">
-            <span className="text-purple-400">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
-              </svg>
-            </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-purple-300">Testimonials</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/35 bg-purple-500/[0.07] px-5 py-2.5">
+            <span className="text-xl leading-none text-purple-300">&ldquo;</span>
+            <span className="text-xs font-bold uppercase tracking-[0.16em] text-purple-300">Testimonials</span>
           </div>
 
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
+          <h2 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
             What Our{" "}
-            <span className="bg-linear-to-r from-purple-400 via-violet-400 to-purple-300 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-purple-400 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
               Clients Say
             </span>
           </h2>
 
-          <p className="text-zinc-400 text-base sm:text-lg max-w-[520px] leading-relaxed">
+          <p className="max-w-[560px] text-base leading-7 text-zinc-400 sm:text-lg">
             We&apos;re proud to help businesses grow and succeed.<br />
             Here&apos;s what our amazing clients have to say about working with KytoLabs.
           </p>
-        </motion.div>
-
-        {/* Carousel */}
-        <div className="relative flex items-center gap-4">
-
-          {/* Prev arrow */}
-          <button
-            onClick={prev}
-            aria-label="Previous"
-            className="shrink-0 flex h-11 w-11 items-center justify-center rounded-full border border-purple-500/30 bg-[#0d0b1a] text-purple-400 transition-all duration-200 hover:border-purple-500/60 hover:bg-purple-500/10 z-10"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6"/>
-            </svg>
-          </button>
-
-          {/* Cards — desktop 3-up, mobile 1-up */}
-          <div className="flex-1 overflow-hidden">
-            {/* Desktop */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.35, ease }}
-                className="hidden lg:grid grid-cols-3 gap-5"
-              >
-                {visibleIndices.map((idx) => (
-                  <TestimonialCard key={testimonials[idx].id} testimonial={testimonials[idx]} />
-                ))}
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Mobile */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`mobile-${activeIndex}`}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.35, ease }}
-                className="lg:hidden"
-              >
-                <TestimonialCard testimonial={testimonials[activeIndex]} />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Next arrow */}
-          <button
-            onClick={next}
-            aria-label="Next"
-            className="shrink-0 flex h-11 w-11 items-center justify-center rounded-full border border-purple-500/30 bg-[#0d0b1a] text-purple-400 transition-all duration-200 hover:border-purple-500/60 hover:bg-purple-500/10 z-10"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6"/>
-            </svg>
-          </button>
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveIndex(i)}
-              aria-label={`Go to testimonial ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === activeIndex ? "w-6 bg-purple-500" : "w-2 bg-white/20"
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Trusted brands */}
-        <div className="mt-16 pt-10 border-t border-white/[0.06]">
-          <p className="text-center text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 mb-8">
-            Trusted by businesses of all sizes
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
-            {brands.map((brand) => (
-              <div key={brand.name} className="flex items-center gap-2 text-zinc-500 hover:text-zinc-300 transition-colors duration-200">
-                <span>{brand.icon}</span>
-                <span className="text-sm font-semibold tracking-wide">{brand.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
+        </motion.header>
       </div>
+
+      <div className="relative flex flex-col gap-5">
+        <TestimonialRow items={testimonials} />
+        <TestimonialRow items={secondRow} reverse />
+      </div>
+
     </section>
   );
 }

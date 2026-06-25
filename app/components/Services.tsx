@@ -1,181 +1,113 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const services = [
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
-      </svg>
-    ),
-    title: "Website Development",
-    description: "Fast, modern and responsive websites that convert visitors into customers.",
-    tags: ["Business Websites", "Landing Pages", "E-Commerce Stores"],
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-      </svg>
-    ),
-    title: "Design & Branding",
-    description: "Creative designs and strong brands that leave a lasting impression.",
-    tags: ["UI/UX Design", "Brand Identity", "Logo Design"],
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m3 11 19-9-9 19-2-8-8-2z" />
-      </svg>
-    ),
-    title: "Social Media Management",
-    description: "We manage your social platforms and grow your audience organically.",
-    tags: ["Content Creation", "Posting & Scheduling", "Community Management"],
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m22 8-6 4 6 4V8z" />
-        <rect x="2" y="6" width="14" height="12" rx="2" />
-      </svg>
-    ),
-    title: "AI Video Ads",
-    description: "AI-powered video ads that grab attention and drive more sales.",
-    tags: ["Product Ads", "UGC Style Videos", "Reels & Shorts"],
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="18" y1="20" x2="18" y2="10" />
-        <line x1="12" y1="20" x2="12" y2="4" />
-        <line x1="6" y1="20" x2="6" y2="14" />
-      </svg>
-    ),
-    title: "Digital Marketing",
-    description: "Data-driven campaigns that bring traffic, leads and real business growth.",
-    tags: ["Meta Ads", "Google Ads", "Lead Generation"],
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="11" width="18" height="10" rx="2" />
-        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-        <circle cx="12" cy="16" r="1" fill="currentColor" />
-        <path d="M12 17v2" />
-      </svg>
-    ),
-    title: "AI Automation",
-    description: "Automate workflows and save time with smart AI solutions.",
-    tags: ["Chatbots", "CRM Automation", "Workflow Automation"],
-  },
-];
+function ServiceIcon({ type }: { type: "design" | "development" | "seo" }) {
+  return (
+    <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl sm:h-20 sm:w-20 lg:h-16 lg:w-16 border border-purple-500/35 bg-purple-500/[0.07] text-purple-400 shadow-[inset_0_0_24px_rgba(126,34,206,0.08)]">
+      {type === "design" && (
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="m15 5 4 4M13 7l4 4M5 19l3.5-.7L19.2 7.6a2.1 2.1 0 0 0-3-3L5.6 15.2 5 19Z"/><path d="M4 13.5 2.8 18A2.5 2.5 0 0 0 6 21.2l4.5-1.2"/>
+        </svg>
+      )}
+      {type === "development" && (
+        <svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/>
+        </svg>
+      )}
+      {type === "seo" && (
+        <svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M7 10.5h7M10.5 7v7"/>
+        </svg>
+      )}
+    </span>
+  );
+}
 
-const ArrowIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="7" y1="17" x2="17" y2="7" />
-    <polyline points="7 7 17 7 17 17" />
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
+function MobileArrow() {
+  return (
+    <span className="absolute right-6 top-1/2 z-20 -translate-y-1/2 text-3xl font-light text-purple-400 lg:hidden" aria-hidden="true">›</span>
+  );
+}
 
 export default function Services() {
   return (
-    <section className="w-full py-20 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease }}
-          className="text-center mb-14"
-        >
-          <div className="flex flex-col items-center gap-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4 py-2 px-5">
-            <span className="text-purple-400 text-sm leading-none">✦</span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-300">Our Services</span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
-            Solutions That Drive<br />
-            <span className="bg-linear-to-r from-purple-400 via-violet-400 to-purple-300 bg-clip-text text-transparent">
-              Real Results
+    <section id="services" className="relative w-full scroll-mt-24 overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-900/[0.055] blur-[150px]" />
+      <div className="relative mx-auto max-w-7xl">
+        <motion.header initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .6, ease }} className="mb-10 flex flex-col items-center gap-5 text-center sm:mb-12 lg:mb-14">
+          <div className="inline-flex items-center gap-3 rounded-full border border-purple-500/35 bg-purple-500/[0.07] px-5 py-2.5 text-purple-300">
+            <span className="flex h-5 w-5 items-center justify-center rounded-md bg-purple-500 text-white shadow-[0_0_15px_rgba(168,85,247,.7)]">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg>
             </span>
+            <span className="text-sm font-semibold uppercase tracking-[0.1em]">Our Services</span>
+          </div>
+          <h2 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Services That Drive{" "}
+            <span className="bg-linear-to-r from-purple-400 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">Real Results</span>
           </h2>
-          <p className="text-zinc-400 text-base sm:text-lg max-w-[520px] leading-relaxed">
-            We combine creativity, technology, and strategy to deliver digital
-            experiences that help your business grow and scale.
+          <p className="max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
+            We help businesses grow with powerful digital solutions<br className="hidden sm:block"/> designed to perform and built to scale.
           </p>
+        </motion.header>
+
+        <div className="grid gap-4 lg:grid-cols-[.86fr_1.14fr] lg:grid-rows-[390px_230px]">
+          <motion.article initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: .65, ease }} className="group relative min-h-[420px] overflow-hidden rounded-[24px] border border-white/[0.1] bg-[#0a0814]/85 p-6 sm:min-h-[430px] sm:p-8 lg:min-h-[640px] lg:row-span-2 lg:rounded-[26px]">
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-purple-500/[0.05] via-transparent to-transparent" />
+            <MobileArrow />
+            <div className="relative z-10 flex items-start gap-5">
+              <ServiceIcon type="design"/>
+              <div className="pt-1">
+                <h3 className="mb-2 text-2xl font-bold text-white sm:text-3xl">Design</h3>
+                <p className="max-w-[320px] text-sm leading-6 text-zinc-300 sm:text-base sm:leading-7">We create visually stunning, user-focused designs that reflect your brand and captivate your audience.</p>
+              </div>
+            </div>
+            <div className="absolute inset-x-5 -bottom-52 h-[480px] sm:inset-x-12 sm:-bottom-56 sm:h-[520px] lg:inset-x-8 lg:-bottom-52 lg:h-[650px]">
+              <Image src="/phone.png" alt="Mobile dashboard interface designed by KytoLabs" fill sizes="(min-width: 1024px) 460px, 90vw" className="object-contain object-top transition-transform duration-700 group-hover:-translate-y-2 group-hover:scale-[1.015]" style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 8%, black 86%, transparent 100%)" }}/>
+            </div>
+          </motion.article>
+
+          <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .65, ease, delay: .08 }} className="group relative min-h-[430px] overflow-hidden rounded-[24px] border border-white/[0.1] bg-[#0a0814]/85 p-6 sm:min-h-[440px] sm:p-8 lg:min-h-[390px] lg:rounded-[26px]">
+            <MobileArrow />
+            <div className="relative z-10 flex items-start gap-5 pr-8 lg:pr-0">
+              <ServiceIcon type="development"/>
+              <div className="pt-1">
+                <h3 className="mb-2 text-2xl font-bold text-white sm:text-3xl">Development</h3>
+                <p className="max-w-[440px] text-sm leading-6 text-zinc-300 sm:text-base sm:leading-7">From idea to execution, we build fast, responsive websites and web applications that deliver real impact.</p>
+              </div>
+            </div>
+            <div className="absolute inset-x-2 -bottom-10 h-[270px] sm:inset-x-14 sm:-bottom-14 sm:h-[310px] lg:inset-x-20 lg:bottom-[-78px] lg:h-[290px]">
+              <Image src="/laptop.png" alt="Website development displayed on a laptop" fill sizes="(min-width: 1024px) 620px, 85vw" className="object-contain object-top transition-transform duration-700 group-hover:-translate-y-2 group-hover:scale-[1.02]" style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 90%)" }}/>
+            </div>
+          </motion.article>
+
+          <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .65, ease, delay: .14 }} className="group relative min-h-[350px] overflow-hidden rounded-[24px] border border-white/[0.1] bg-[#0a0814]/85 p-6 sm:min-h-[260px] sm:p-8 lg:min-h-0 lg:rounded-[26px]">
+            <MobileArrow />
+            <div className="relative z-10 flex items-start gap-5 pr-8 lg:pr-0">
+              <ServiceIcon type="seo"/>
+              <div className="pt-1">
+                <h3 className="mb-2 text-2xl font-bold text-white sm:text-3xl">SEO</h3>
+                <p className="max-w-[350px] text-sm leading-6 text-zinc-300 sm:text-base sm:leading-7">We optimize your website to rank higher, drive organic traffic, and turn visitors into loyal customers.</p>
+              </div>
+            </div>
+            <div className="absolute -bottom-10 -right-16 h-[210px] w-[300px] opacity-95 sm:-bottom-16 sm:right-0 sm:h-[300px] sm:w-[430px] lg:-bottom-14 lg:-right-8 lg:h-[250px] lg:w-[360px]">
+              <Image src="/seo.png" alt="SEO growth across search platforms" fill sizes="(min-width: 1024px) 360px, 60vw" className="object-contain transition-transform duration-700 group-hover:scale-105" style={{ maskImage: "radial-gradient(ellipse, black 45%, transparent 76%)" }}/>
+            </div>
+          </motion.article>
         </div>
+
+        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .55, ease, delay: .18 }} className="mx-auto mt-5 flex max-w-3xl flex-col items-stretch justify-between gap-5 rounded-2xl min-[520px]:flex-row min-[520px]:items-center sm:mt-7 border border-white/[0.1] bg-[#0a0814]/85 px-6 py-5 sm:flex-row">
+          <div className="flex items-center gap-5">
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-400 shadow-[0_0_22px_rgba(147,51,234,.25)]">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.8 4.2c-3.5.8-6.3 3.6-7.1 7.1L4 15l5 1 1 5 3.7-3.7c3.5-.8 6.3-3.6 7.1-7.1L22 2l-7.2 2.2ZM15 11a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM4.5 17.5 2 22l4.5-2.5-2-2Z"/></svg>
+            </span>
+            <div><h3 className="font-bold text-white">Need something custom?</h3><p className="mt-1 text-sm text-zinc-400 sm:text-base">We offer tailored solutions to match your unique business needs.</p></div>
+          </div>
+          <a href="#contact" className="group inline-flex w-full shrink-0 items-center justify-center gap-4 rounded-xl min-[520px]:w-auto border border-purple-500/40 px-5 py-3 font-semibold text-purple-300 transition hover:border-purple-400 hover:bg-purple-500/10">Let&apos;s Talk <span className="text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span></a>
         </motion.div>
-
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, ease, delay: i * 0.08 }}
-              className="group relative flex flex-col gap-5 rounded-2xl border border-white/[0.07] bg-[#0a0814]/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/30 hover:bg-[#0e0b1c]/80 hover:shadow-[0_8px_32px_rgba(168,85,247,0.12)]"
-            >
-              {/* Icon */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-purple-600/80 to-violet-700/80 text-white shadow-[0_4px_20px_rgba(139,92,246,0.35)]">
-                {service.icon}
-              </div>
-
-              {/* Text */}
-              <div className="flex flex-col gap-2 flex-1">
-                <h3 className="text-lg font-bold text-white leading-snug">{service.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">{service.description}</p>
-              </div>
-
-              {/* Tags */}
-              <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
-                {service.tags.map((tag) => (
-                  <span key={tag} className="flex items-center gap-2 text-xs text-zinc-300">
-                    <span className="flex h-[18px] w-[18px] items-center justify-center rounded-full bg-purple-500/20 text-purple-400 ring-1 ring-purple-500/30 shrink-0">
-                      <CheckIcon />
-                    </span>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Learn More */}
-              <div className="flex items-center justify-between pt-3 border-t border-white/[0.07] mt-auto">
-                <a
-                  href="#contact"
-                  className="text-sm font-semibold text-purple-400 transition-colors duration-200 hover:text-purple-300"
-                >
-                  Learn More
-                </a>
-                <a
-                  href="#contact"
-                  aria-hidden="true"
-                  className="flex items-center justify-center h-8 w-8 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 transition-all duration-200 hover:bg-purple-500/20 hover:border-purple-400/50 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                >
-                  <ArrowIcon />
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
       </div>
     </section>
   );

@@ -3,6 +3,11 @@
 :root {
   --background: #030208;
   --foreground: #f4f4f5;
+  --surface: #0a0814;
+  --surface-raised: #10091d;
+  --brand: #a855f7;
+  --brand-deep: #7c3aed;
+  --brand-soft: #c084fc;
 }
 
 @theme {
@@ -47,12 +52,39 @@
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 18% 30%, rgba(88, 28, 135, 0.055), transparent 28%),
+    radial-gradient(circle at 82% 65%, rgba(124, 58, 237, 0.045), transparent 30%),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-soft);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
