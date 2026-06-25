@@ -64,7 +64,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative w-full scroll-mt-24 pt-48 pb-12 flex flex-col items-center justify-center text-center overflow-hidden">
+    <section id="home" className="relative w-full scroll-mt-24 pt-36 pb-12 flex flex-col items-center justify-center text-center overflow-hidden">
 
       {/* Vanta DOTS canvas */}
       <div ref={vantaRef} className="absolute inset-0 z-0" />
