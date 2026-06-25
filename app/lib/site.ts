@@ -1,5 +1,5 @@
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://kytolabs.com"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://kytolabs.dev"
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "KytoLabs";

@@ -16,10 +16,10 @@ KytoLabs is a website development, web design, and SEO agency based in Dubai, UA
 
 ## Contact
 
-- Website: https://kytolabs.com
+- Website: https://kytolabs.dev
 - Email: contact.pranovm@gmail.com
 - Phone: +971 54 738 3114
 
 ## Canonical source
 
-The canonical overview of KytoLabs, its services, process, testimonials, and FAQs is https://kytolabs.com/.
+The canonical overview of KytoLabs, its services, process, testimonials, and FAQs is https://kytolabs.dev/.

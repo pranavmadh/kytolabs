@@ -47,11 +47,20 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "Global Website Development Agency | KytoLabs",
     description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "KytoLabs website development, web design, and SEO agency",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Global Website Development Agency | KytoLabs",
     description: SITE_DESCRIPTION,
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
